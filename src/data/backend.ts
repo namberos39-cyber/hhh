@@ -51,10 +51,10 @@ export async function getDepartures(stationId: number): Promise<Departure[]> {
   let departures: Departure[] = [];
 
   const response = await fetch(
-    `${baseUrl}/horarios-prevision/${stationId}`
+    `${baseUrl}/horarios-prevision-3/${stationId}`
   ).then((response) => response.json());
 
-  response.forEach((departure: BackendDeparture) =>
+  response.previsiones.forEach((departure: BackendDeparture) =>
     departure.trains.forEach((train: BackendTrain) =>
       departures.push({
         line: departure.line,

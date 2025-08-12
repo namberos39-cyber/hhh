@@ -22,7 +22,7 @@ http://:3000 {
 
 	  rewrite * /ap18/api/public/es/api/v1/V{path}
 
-    reverse_proxy https://www.metrovalencia.es {
+    reverse_proxy https://www.fgv.es {
       header_up Host {upstream_hostport}
     }
   }
