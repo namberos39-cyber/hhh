@@ -1,3 +1,8 @@
+Versión creada para
+1. emular el diseño de las pantallas del tranvía
+2. deployear sin docker para poder hacer las peticiones a la API bien :P (en mi caso vercel por tanto creo archivo archivo vercel.json)
+
+-------------
 <p align="center"><a href="https://avptp.org"><img src="https://cdn.avptp.org/brand/imagotype.svg" height="70px"></a></p>
 
 # Transit Info
