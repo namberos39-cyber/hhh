@@ -3,20 +3,22 @@ import "./DateTime.scss";
 
 function DateTime() {
   const [date, setDate] = useState<Date>(new Date());
-  const [language, setLanguage] = useState<string>("ca");
+  // const [language, setLanguage] = useState<string>("ca"); // <-- Eliminado
 
   useEffect(() => {
     const timeInterval = setInterval(() => {
       setDate(new Date());
     }, 1000);
 
+    /* El intervalo de fecha e idioma se ha eliminado
     const dateInterval = setInterval(() => {
       setLanguage((previous) => (previous === "ca" ? "es" : "ca"));
     }, 5000);
+    */
 
     return () => {
       clearInterval(timeInterval);
-      clearInterval(dateInterval);
+      // clearInterval(dateInterval); // <-- Eliminado
     };
   }, []);
 
@@ -32,6 +34,7 @@ function DateTime() {
             :{date.getSeconds().toLocaleString([], { minimumIntegerDigits: 2 })}
           </small>
         </div>
+        {/* La fecha se ha eliminado
         <div className="date">
           {date.toLocaleDateString(language, {
             weekday: "long",
@@ -39,6 +42,7 @@ function DateTime() {
             day: "numeric",
           })}
         </div>
+        */}
       </div>
     </div>
   );
