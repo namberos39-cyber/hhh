@@ -38,7 +38,7 @@ function Schedules({ station }: Props) {
     <section className="schedules">
       <div className="header">
         <div className="line">
-          <div>LÍNIA</div> {/* <-- Corregido! */}
+          <div>LÍNIA</div>
         </div>
         <div className="destination">
           <div>DESTINACIÓ</div>
@@ -49,6 +49,13 @@ function Schedules({ station }: Props) {
       </div>
 
       {departures.map((departure) => {
+        // --- INICIO DEL PARCHEO (Modo correcto) ---
+        let destinationName = departure.destination;
+        if (destinationName === "TALLER TARONGERS-D") {
+          destinationName = "TARONGERS";
+        }
+        // --- FIN DEL PARCHEO ---
+
         return (
           <div
             key={`${departure.line}-${departure.destination}-${departure.time}`}
@@ -58,7 +65,8 @@ function Schedules({ station }: Props) {
               <Line id={departure.line} />
             </div>
             <div className="destination">
-              <div>{departure.destination}</div>
+              {/* Mostramos la variable corregida */}
+              <div>{destinationName}</div>
             </div>
             <div className="time">{getDepartureTime(departure.time)}</div>
           </div>
