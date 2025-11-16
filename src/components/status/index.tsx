@@ -24,11 +24,12 @@ function Status({ full, type }: Props) {
       {type === StatusType.Error && (
         <div className="description">
           <div>Les estimacions no estan disponibles</div>
-          <div>Las estimaciones no están disponibles</div>
+          {/* <div>Las estimaciones no están disponibles</div> <-- Eliminado */}
         </div>
       )}
       {type === StatusType.Loading && (
-        <CircleSpinner color="#e51d2d" size={60} />
+        // Color del spinner cambiado a color LED
+        <CircleSpinner color="#FFFFE0" size={60} />
       )}
     </section>
   );
