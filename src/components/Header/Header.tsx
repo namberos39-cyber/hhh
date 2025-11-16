@@ -1,5 +1,5 @@
 import DateTime from "components/DateTime/DateTime";
-import logo from "images/metrovalencia/isologo.svg";
+// import logo from "images/metrovalencia/isologo.svg"; // <-- Eliminado
 import { Station } from "types/station";
 import "./Header.scss";
 
@@ -10,10 +10,9 @@ type Props = {
 function Header(props: Props) {
   return (
     <header>
-      <div className="logo">
-        <img src={logo} alt="Logo" />
-      </div>
+      {/* El logo se ha eliminado */}
       <div className="title">{props.station.name}</div>
+      {/* El título original del medio se ha eliminado */}
       <DateTime />
     </header>
   );
