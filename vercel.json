@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://www.fgv.es/ap18/api/public/es/api/v1/V/$1"
+    }
+  ]
+}
