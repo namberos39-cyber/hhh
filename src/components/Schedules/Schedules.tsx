@@ -1,4 +1,4 @@
-// import { faMale } from "@fortawesome/free-solid-svg-icons"; // <-- Eliminado
+// import { faMale } from "@fortawesome/free-solid-svg-icons"; // <-- Eliminados
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // <-- Eliminado
 import Status, { StatusType } from "components/status";
 import Line from "components/Line/Line";
