@@ -38,7 +38,7 @@ function Schedules({ station }: Props) {
     <section className="schedules">
       <div className="header">
         <div className="line">
-          <div>LÍNIA</div>
+          <div>LÍNIA</div> {/* <-- Corregido! */}
         </div>
         <div className="destination">
           <div>DESTINACIÓ</div>
@@ -49,12 +49,6 @@ function Schedules({ station }: Props) {
       </div>
 
       {departures.map((departure) => {
-        // --- INICIO DEL PARCHEO ---
-        if (departure.destination === "TALLER TARONGERS-D") {
-          departure.destination = "TARONGERS";
-        }
-        // --- FIN DEL PARCHEO ---
-
         return (
           <div
             key={`${departure.line}-${departure.destination}-${departure.time}`}
