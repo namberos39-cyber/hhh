@@ -18,27 +18,38 @@ section.schedules {
     align-items: center;
   }
 
+  // --- Definición de nuevas columnas ---
+  .line {
+    flex-basis: 15%;
+    text-align: center;
+  }
+
   .destination {
-    flex-basis: 50%;
+    flex-basis: 55%; // <-- Ajustado (era 50%)
   }
 
   .time {
     flex-basis: 30%;
   }
 
-  .occupancy {
-    flex-basis: 20%;
-  }
+  /* .occupancy ha sido eliminado */
 
   .header {
     height: 12vh;
     padding: 2rem 3.5rem;
-    background-color: #e51d2d;
-    color: white;
+    background-color: var(--led-bg); // <-- Cambiado (era rojo)
+    color: inherit; // <-- Cambiado (era blanco)
     font-size: 4.5rem;
+    border-bottom: 1px solid var(--led-border); // <-- Añadido
 
     > * {
       line-height: 1;
+
+      // Centramos el texto de la nueva columna LÍNEA
+      &.line {
+        text-align: left;
+        padding-left: 2.5rem; // Ajuste para alinear con el SVG
+      }
 
       :last-child {
         font-weight: 200;
@@ -49,9 +60,19 @@ section.schedules {
   .departure {
     height: 10vh;
     padding: 2rem 3rem;
+    border-bottom: 1px solid var(--led-border); // <-- Añadido separador
 
+    /* Color de fila alterna eliminado
     &:nth-child(odd) {
       background-color: #f8f8f8;
+    }
+    */
+
+    // Estilo para la nueva columna LÍNEA
+    .line {
+      img {
+        height: 6rem;
+      }
     }
 
     .destination {
@@ -59,10 +80,12 @@ section.schedules {
       align-items: center;
       font-weight: 600;
 
+      /* SVG de línea movido
       img {
         height: 6rem;
         margin-right: 3rem;
       }
+      */
     }
 
     .time {
@@ -77,11 +100,6 @@ section.schedules {
       }
     }
 
-    .occupancy {
-      display: flex;
-      > * {
-        margin: 0 0.4rem;
-      }
-    }
+    /* .occupancy ha sido eliminado */
   }
 }
