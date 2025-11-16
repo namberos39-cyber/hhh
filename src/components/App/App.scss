@@ -1,6 +1,13 @@
 @import "~normalize.css/normalize";
 
 /** Base **/
+
+:root {
+  --led-text: #ffffe0; /* Un color blanco-amarillento para el efecto LED */
+  --led-bg: #000000;
+  --led-border: #333; /* Un gris oscuro para separadores */
+}
+
 * {
   box-sizing: border-box;
   white-space: nowrap;
@@ -17,7 +24,8 @@ body {
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
     "Helvetica Neue", "Helvetica", "Arial", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";
-  color: black;
+  color: var(--led-text);
+  background-color: var(--led-bg);
   text-rendering: optimizeLegibility;
 }
 
