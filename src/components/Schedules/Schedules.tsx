@@ -42,7 +42,7 @@ function Schedules({ station }: Props) {
       <div className="header">
         {/* Columna LÍNEA añadida */}
         <div className="line">
-          <div>LÍNEA</div>
+          <div>LÍNIA</div>
         </div>
         <div className="destination">
           <div>DESTINACIÓ</div>
