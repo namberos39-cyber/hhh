@@ -14,10 +14,7 @@ section.status {
   }
 
   hr {
-    width: 15vw;
-    border-color: var(--led-border); // <-- Añadido para tema oscuro
-    border-style: solid; // <-- Añadido
-    border-width: 1px 0 0 0; // <-- Añadido
+    display: none; /* <-- Cambiado (antes definía un borde) */
   }
 
   .description {
