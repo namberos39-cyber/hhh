@@ -1,12 +1,12 @@
-import { faMale } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faMale } from "@fortawesome/free-solid-svg-icons"; // <-- Eliminado
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // <-- Eliminado
 import Status, { StatusType } from "components/status";
 import Line from "components/Line/Line";
 import { getDepartures } from "data/backend";
 import { useEffect, useState } from "react";
 import { Departure } from "types/departure";
 import { Station } from "types/station";
-import { getOccupancyType, occupancyColor, OccupancyType } from "./occupancy";
+// import { getOccupancyType, occupancyColor, OccupancyType } from "./occupancy"; // <-- Eliminado
 import "./Schedules.scss";
 
 type Props = {
@@ -40,33 +40,44 @@ function Schedules({ station }: Props) {
   return (
     <section className="schedules">
       <div className="header">
+        {/* Columna LÍNEA añadida */}
+        <div className="line">
+          <div>LÍNEA</div>
+        </div>
         <div className="destination">
-          <div>Destinació</div>
-          <div>Destino</div>
+          <div>DESTINACIÓ</div>
+          {/* <div>Destino</div> <-- Eliminado */}
         </div>
         <div className="time">
-          <div>Pròxima eixida</div>
-          <div>Próxima salida</div>
+          <div>PRÒXIMA EIXIDA</div>
+          {/* <div>Próxima salida</div> <-- Eliminado */}
         </div>
+        {/* Columna Ocupació eliminada
         <div className="occupancy">
           <div>Ocupació</div>
           <div>Ocupación</div>
         </div>
+        */}
       </div>
 
       {departures.map((departure) => {
-        const occupancy = getOccupancyType(departure.occupancy);
+        // const occupancy = getOccupancyType(departure.occupancy); // <-- Eliminado
 
         return (
           <div
             key={`${departure.line}-${departure.destination}-${departure.time}`}
             className="departure"
           >
-            <div className="destination">
+            {/* Columna LÍNEA añadida */}
+            <div className="line">
               <Line id={departure.line} />
+            </div>
+            <div className="destination">
+              {/* <Line id={departure.line} /> <-- Movido a su propia columna */}
               <div>{departure.destination}</div>
             </div>
             <div className="time">{getDepartureTime(departure.time)}</div>
+            {/* Columna Ocupació eliminada
             <div className="occupancy">
               {occupancy === OccupancyType.Unknown ||
                 [...Array(3).keys()].map((key) => {
@@ -83,6 +94,7 @@ function Schedules({ station }: Props) {
                   );
                 })}
             </div>
+            */}
           </div>
         );
       })}
@@ -98,7 +110,7 @@ function getDepartureTime(total: number) {
     return (
       <div className="next">
         <div>immediata</div>
-        <div>inmediata</div>
+        {/* <div>inmediata</div> <-- Eliminado */}
       </div>
     );
   }
