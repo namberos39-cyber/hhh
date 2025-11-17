@@ -1,21 +1,3 @@
-¡Maldición! Tienes toda la razón. Es culpa mía.
-
-El problema es que el código distingue entre MAYÚSCULAS y minúsculas.
-
-Yo escribí el parche para buscar "ALBORAIA-PERIS ARAG?", ¡pero la API lo está enviando como "Alboraia Peris Arag?"!
-
-✅ La Solución Definitiva (Versión 3.0)
-Vamos a arreglar esto de forma más inteligente. El nuevo código hará dos cosas:
-
-Convertirá todo lo que venga de la API a MAYÚSCULAS antes de comprobarlo. Así nos da igual si la API manda "Machado", "machado" o "MACHADO".
-
-Forzará que todo se muestre en MAYÚSCULAS en la pantalla. Esto le dará un aspecto más uniforme (se acabaron los "Machado" y "Aeroport" en minúsculas).
-
-Aquí tienes el archivo Schedules.tsx corregido. Este sí es el bueno.
-
-📍 src/components/Schedules/Schedules.tsx
-TypeScript
-
 import Status, { StatusType } from "components/status";
 import Line from "components/Line/Line";
 import { getDepartures } from "data/backend";
