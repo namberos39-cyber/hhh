@@ -120,16 +120,18 @@ function getDepartureTime(total: number) {
     );
   }
 
+  // --- AQUÍ ESTÁ EL CAMBIO ---
+  // Envolvemos la salida en un <div> para que el 'display: flex'
+  // del padre no afecte a los espacios internos.
   return (
-    <>
+    <div>
       {hours > 0 && (
         <>
-          {hours}{" "} <small>h</small>{" "}
+          {hours} <small>h</small>{" "}
         </>
       )}
-      {/* --- AQUÍ ESTÁ EL CAMBIO --- */}
-      {minutes}{" "} <small>min</small>
-    </>
+      {minutes} <small>min</small>
+    </div>
   );
 }
 
