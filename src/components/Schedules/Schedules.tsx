@@ -52,7 +52,7 @@ function Schedules({ station }: Props) {
         // --- INICIO DEL PARCHEO (Modo correcto) ---
         let destinationName = departure.destination;
         if (destinationName === "TALLER TARONGERS-D") {
-          destinationName = "TARONGERS";
+          destinationName = "MARITIM";
         }
         // --- FIN DEL PARCHEO ---
 
