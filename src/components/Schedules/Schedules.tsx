@@ -78,9 +78,13 @@ function Schedules({ station }: Props) {
         else if (upperDestination === "B?TERA") {
           destinationName = "BÉTERA";
         }
-        // 6. Arreglo de Tildes (Castelló) - Añadido
+        // 6. Arreglo de Tildes (Castelló)
         else if (upperDestination === "CASTELL?") {
           destinationName = "CASTELLÓ";
+        }
+        // 7. Arreglo de Tildes (València Sud) - Añadido
+        else if (upperDestination === "VAL?NCIA SUD") {
+          destinationName = "VALÈNCIA SUD";
         }
         // --- FIN DEL PARCHEO ---
 
