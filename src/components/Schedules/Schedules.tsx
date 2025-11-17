@@ -1,3 +1,21 @@
+¡Maldición! Tienes toda la razón. Es culpa mía.
+
+El problema es que el código distingue entre MAYÚSCULAS y minúsculas.
+
+Yo escribí el parche para buscar "ALBORAIA-PERIS ARAG?", ¡pero la API lo está enviando como "Alboraia Peris Arag?"!
+
+✅ La Solución Definitiva (Versión 3.0)
+Vamos a arreglar esto de forma más inteligente. El nuevo código hará dos cosas:
+
+Convertirá todo lo que venga de la API a MAYÚSCULAS antes de comprobarlo. Así nos da igual si la API manda "Machado", "machado" o "MACHADO".
+
+Forzará que todo se muestre en MAYÚSCULAS en la pantalla. Esto le dará un aspecto más uniforme (se acabaron los "Machado" y "Aeroport" en minúsculas).
+
+Aquí tienes el archivo Schedules.tsx corregido. Este sí es el bueno.
+
+📍 src/components/Schedules/Schedules.tsx
+TypeScript
+
 import Status, { StatusType } from "components/status";
 import Line from "components/Line/Line";
 import { getDepartures } from "data/backend";
@@ -49,23 +67,22 @@ function Schedules({ station }: Props) {
       </div>
 
       {departures.map((departure) => {
-        // --- INICIO DEL PARCHEO (Modo correcto) ---
+        // --- INICIO DEL PARCHEO (Versión robusta) ---
         let destinationName = departure.destination;
 
-        // 1. El cambio a Marítim (con tilde y mayúsculas)
-        if (destinationName === "TALLER TARONGERS-D") {
+        // Convertimos a mayúsculas para comparar, así no importa cómo lo envíe la API
+        const upperDestination = destinationName.toUpperCase();
+
+        // 1. El cambio a Marítim
+        if (upperDestination === "TALLER TARONGERS-D") {
           destinationName = "MARÍTIM";
         }
-
-        // 2. Arreglo de Tildes (Riba-roja)
-        // Asumimos que la API envía "T?RIA"
-        if (destinationName === "RIBA-ROJA DE T?RIA") {
+        // 2. Arreglo de Tildes (Riba-roja) - Comprobamos el texto exacto que ves
+        else if (upperDestination === "RIBA-ROJA DE T?RIA") {
           destinationName = "RIBA-ROJA DE TÚRIA";
         }
-
-        // 3. Arreglo de Tildes (Alboraia)
-        // Asumimos que la API envía "ARAG?"
-        if (destinationName === "ALBORAIA-PERIS ARAG?") {
+        // 3. Arreglo de Tildes (Alboraia) - Comprobamos el texto exacto que ves
+        else if (upperDestination === "ALBORAIA PERIS ARAG?") {
           destinationName = "ALBORAIA-PERIS ARAGÓ";
         }
         // --- FIN DEL PARCHEO ---
@@ -79,8 +96,8 @@ function Schedules({ station }: Props) {
               <Line id={departure.line} />
             </div>
             <div className="destination">
-              {/* Mostramos la variable corregida */}
-              <div>{destinationName}</div>
+              {/* Forzamos a MAYÚSCULAS para que todo se vea uniforme */}
+              <div>{destinationName.toUpperCase()}</div>
             </div>
             <div className="time">{getDepartureTime(departure.time)}</div>
           </div>
