@@ -48,7 +48,8 @@ function Schedules({ station }: Props) {
         </div>
       </div>
 
-      {departures.map((departure) => {
+      {/* --- CAMBIO 5: Limitamos a 7 entradas --- */}
+      {departures.slice(0, 7).map((departure) => {
         // --- INICIO DEL PARCHEO (Versión robusta) ---
         let destinationName = departure.destination;
 
@@ -82,7 +83,7 @@ function Schedules({ station }: Props) {
         else if (upperDestination === "CASTELL?") {
           destinationName = "CASTELLÓ";
         }
-        // 7. Arreglo de Tildes (València Sud) - Añadido
+        // 7. Arreglo de Tildes (València Sud)
         else if (upperDestination === "VAL?NCIA SUD") {
           destinationName = "VALÈNCIA SUD";
         }
@@ -115,6 +116,7 @@ function getDepartureTime(total: number) {
   if (!hours && !minutes) {
     return (
       <div className="next">
+        {/* --- CAMBIO 1: Aplicado con CSS --- */}
         <div>immediata</div>
       </div>
     );
