@@ -1,5 +1,5 @@
+import React, { useEffect, useState } from "react"; // <-- 'React' es necesario para el 'onChange'
 import { syncStations } from "data/backend";
-import { useEffect, useState } from "react";
 import Status, { StatusType } from "components/status";
 import Header from "components/Header/Header";
 import Schedules from "components/Schedules/Schedules";
@@ -32,10 +32,40 @@ function App() {
     currentStation &&
     stations?.find((station: Station) => station.id === currentStation);
 
+  // --- ¡AQUÍ ESTÁ LA MAGIA! ---
+  // Si no hay una estación en la URL (!station)...
   if (!station) {
-    return <Status full={true} type={StatusType.Error} />;
+    // ...mostramos el selector en lugar del error.
+
+    const handleStationSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const newId = e.target.value;
+      if (newId) {
+        // Recargamos la página con la estación seleccionada
+        window.location.search = `?station=${newId}`;
+      }
+    };
+
+    return (
+      <div className="station-selector">
+        <h2>Selecciona una estació</h2>
+        <select onChange={handleStationSelect} defaultValue="">
+          <option value="" disabled>
+            -- Tria una estació --
+          </option>
+          {/* Creamos una opción por cada estación, ordenada alfabéticamente */}
+          {stations
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((s) => (
+              <option key={s.id} value={s.id}>
+                {s.name}
+              </option>
+            ))}
+        </select>
+      </div>
+    );
   }
 
+  // Si SÍ hay una estación, mostramos los horarios (como antes)
   return (
     <>
       <Header station={station} />
