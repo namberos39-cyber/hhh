@@ -1,16 +1,12 @@
 header .datetime {
-  color: inherit; // <-- Cambiado (para heredar el color LED)
   line-height: 1;
   text-align: right;
 
   .time {
-    font-size: 6rem;
+    // --- CAMBIO 3: Más grande y blanco ---
+    font-size: 6.5rem; // (era 6rem)
+    color: #ffffff;
+    // --- Fin Cambio 3 ---
     font-weight: bold;
   }
-
-  /* Estilos de fecha eliminados
-  .date {
-    font-size: 3.5rem;
-  }
-  */
 }
