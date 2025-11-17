@@ -48,7 +48,6 @@ function Schedules({ station }: Props) {
         </div>
       </div>
 
-      {/* --- CAMBIO 5: Limitamos a 7 entradas --- */}
       {departures.slice(0, 7).map((departure) => {
         // --- INICIO DEL PARCHEO (Versión robusta) ---
         let destinationName = departure.destination;
@@ -116,7 +115,6 @@ function getDepartureTime(total: number) {
   if (!hours && !minutes) {
     return (
       <div className="next">
-        {/* --- CAMBIO 1: Aplicado con CSS --- */}
         <div>immediata</div>
       </div>
     );
@@ -126,10 +124,11 @@ function getDepartureTime(total: number) {
     <>
       {hours > 0 && (
         <>
-          {hours} <small>h</small>{" "}
+          {hours}{" "} <small>h</small>{" "}
         </>
       )}
-      {minutes} <small>min</small>
+      {/* --- AQUÍ ESTÁ EL CAMBIO --- */}
+      {minutes}{" "} <small>min</small>
     </>
   );
 }
