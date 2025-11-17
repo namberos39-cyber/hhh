@@ -51,8 +51,22 @@ function Schedules({ station }: Props) {
       {departures.map((departure) => {
         // --- INICIO DEL PARCHEO (Modo correcto) ---
         let destinationName = departure.destination;
+
+        // 1. El cambio a Marítim (con tilde y mayúsculas)
         if (destinationName === "TALLER TARONGERS-D") {
-          destinationName = "MARITIM";
+          destinationName = "MARÍTIM";
+        }
+
+        // 2. Arreglo de Tildes (Riba-roja)
+        // Asumimos que la API envía "T?RIA"
+        if (destinationName === "RIBA-ROJA DE T?RIA") {
+          destinationName = "RIBA-ROJA DE TÚRIA";
+        }
+
+        // 3. Arreglo de Tildes (Alboraia)
+        // Asumimos que la API envía "ARAG?"
+        if (destinationName === "ALBORAIA-PERIS ARAG?") {
+          destinationName = "ALBORAIA-PERIS ARAGÓ";
         }
         // --- FIN DEL PARCHEO ---
 
