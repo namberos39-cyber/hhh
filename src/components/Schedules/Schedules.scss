@@ -20,7 +20,7 @@ section.schedules {
 
   .line {
     flex-basis: 15%;
-    text-align: center; // <-- CAMBIO 4: Centramos todo en la columna
+    text-align: center;
   }
 
   .destination {
@@ -40,16 +40,12 @@ section.schedules {
 
     > * {
       line-height: 1;
-      // --- CAMBIO 2: Blanco y sin negrita ---
       font-weight: normal;
       color: #ffffff;
-      // --- Fin Cambio 2 ---
 
       &.line {
-        // --- CAMBIO 4: Centramos la cabecera LÍNIA ---
         text-align: center;
-        padding-left: 0; // (Quitamos el padding anterior)
-        // --- Fin Cambio 4 ---
+        padding-left: 0;
       }
     }
   }
@@ -59,6 +55,11 @@ section.schedules {
     padding: 2rem 3rem;
 
     .line {
+      // --- AÑADIDO PARA CENTRAR EL SVG ---
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // --- FIN ---
       img {
         height: 6rem;
       }
@@ -71,16 +72,18 @@ section.schedules {
     }
 
     .time {
+      // --- AÑADIDO PARA CENTRAR EL TIEMPO ---
+      display: flex;
+      align-items: center;
+      // --- FIN ---
+
       .next {
         font-size: 4rem;
         line-height: 0.9;
         animation: blinker 1s cubic-bezier(0.7, -0.5, 0.3, 1.5) 0s infinite;
-
-        // --- CAMBIO 1: Amarillo, Negrita, Mayúsculas ---
         color: #ffff00;
         font-weight: bold;
         text-transform: uppercase;
-        // --- Fin Cambio 1 ---
       }
     }
   }
