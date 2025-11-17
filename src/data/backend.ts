@@ -25,23 +25,35 @@ export async function syncStations() {
     ).then((response) => response.json());
 
     if (data.estaciones.length === 0) {
-      return;
+      return; // No hay estaciones nuevas, no hacemos nada
     }
 
-    let stations: Station[] = [];
+    // --- INICIO DEL ARREGLO ---
+    // 1. Coge las estaciones que YA tenías y mételas en un Map (para evitar duplicados)
+    let stationsMap = new Map<number, Station>(
+      (storage.getItem("stations") || []).map((s) => [s.id, s])
+    );
 
-    data.estaciones.forEach((station: BackendStation) =>
-      stations.push({
+    // 2. Procesa las nuevas estaciones
+    data.estaciones.forEach((station: BackendStation) => {
+      const newStation: Station = {
         id: station.estacion_id_FGV,
         name: station.nombre,
         transfer: station.transbordo === 0,
         latitude: station.latitud,
         longitude: station.longitud,
-      })
-    );
+      };
+      // 3. Añade la nueva o actualiza la existente en el Map
+      stationsMap.set(newStation.id, newStation);
+    });
+
+    // 4. Convierte el Map de nuevo a un array
+    const stationsArray = Array.from(stationsMap.values());
 
     storage.setItem("lastSync", DateTime.now().toJSON());
-    storage.setItem("stations", stations);
+    storage.setItem("stations", stationsArray); // Guarda la lista fusionada y sin duplicados
+    // --- FIN DEL ARREGLO ---
+    
   } catch (error) {
     console.error(error);
   }
