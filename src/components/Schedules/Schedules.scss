@@ -72,7 +72,11 @@ section.schedules {
     .time {
       display: flex;
       align-items: center;
-      justify-content: flex-end; // <-- ¡ESTE ES EL CAMBIO!
+      /* justify-content: flex-end; */ /* <-- QUITADO */
+
+      /* --- ESTE ES EL CAMBIO --- */
+      /* Fuerza a que los números (1, 9, 3) ocupen el mismo ancho */
+      font-variant-numeric: tabular-nums;
 
       .next {
         font-size: 4rem;
