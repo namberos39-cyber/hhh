@@ -56,16 +56,31 @@ function Schedules({ station }: Props) {
         const upperDestination = destinationName.toUpperCase();
 
         // 1. El cambio a Marítim
-        if (upperDestination === "TALLER TARONGERS-D") {
+        if (
+          upperDestination === "TALLER TARONGERS-D" ||
+          upperDestination === "MAR?TIM"
+        ) {
           destinationName = "MARÍTIM";
         }
-        // 2. Arreglo de Tildes (Riba-roja) - Comprobamos el texto exacto que ves
+        // 2. Arreglo de Tildes (Riba-roja)
         else if (upperDestination === "RIBA-ROJA DE T?RIA") {
           destinationName = "RIBA-ROJA DE TÚRIA";
         }
-        // 3. Arreglo de Tildes (Alboraia) - Comprobamos el texto exacto que ves
+        // 3. Arreglo de Tildes (Alboraia)
         else if (upperDestination === "ALBORAIA PERIS ARAG?") {
           destinationName = "ALBORAIA-PERIS ARAGÓ";
+        }
+        // 4. Arreglo de Tildes (Llíria)
+        else if (upperDestination === "LL?RIA") {
+          destinationName = "LLÍRIA";
+        }
+        // 5. Arreglo de Tildes (Bétera)
+        else if (upperDestination === "B?TERA") {
+          destinationName = "BÉTERA";
+        }
+        // 6. Arreglo de Tildes (Castelló) - Añadido
+        else if (upperDestination === "CASTELL?") {
+          destinationName = "CASTELLÓ";
         }
         // --- FIN DEL PARCHEO ---
 
