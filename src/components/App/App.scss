@@ -43,10 +43,17 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-grow: 1; /* Para que ocupe toda la pantalla */
+  flex-grow: 1;
   padding: 2rem;
   text-align: center;
   height: 100%;
+
+  /* --- Código nuevo --- */
+  .selector-logo {
+    height: 10vh;
+    margin-bottom: 3rem;
+  }
+  /* --- Fin código nuevo --- */
 
   h2 {
     font-size: 5rem;
@@ -57,7 +64,7 @@ body {
 
   select {
     font-size: 3rem;
-    font-family: inherit; /* Usa la misma fuente LED */
+    font-family: inherit;
     padding: 1rem;
     min-width: 300px;
     max-width: 80%;
