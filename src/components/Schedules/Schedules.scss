@@ -15,12 +15,12 @@ section.schedules {
   > * {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-itemss: center;
   }
 
   .line {
     flex-basis: 15%;
-    text-align: center;
+    text-align: center; // <-- CAMBIO 4: Centramos todo en la columna
   }
 
   .destination {
@@ -37,30 +37,26 @@ section.schedules {
     background-color: var(--led-bg);
     color: inherit;
     font-size: 4.5rem;
-    /* border-bottom: 1px solid var(--led-border); */ /* <-- Eliminado */
 
     > * {
       line-height: 1;
-      font-weight: bold; /* <-- Añadido */
+      // --- CAMBIO 2: Blanco y sin negrita ---
+      font-weight: normal;
+      color: #ffffff;
+      // --- Fin Cambio 2 ---
 
       &.line {
-        text-align: left;
-        padding-left: 2.5rem;
+        // --- CAMBIO 4: Centramos la cabecera LÍNIA ---
+        text-align: center;
+        padding-left: 0; // (Quitamos el padding anterior)
+        // --- Fin Cambio 4 ---
       }
-
-      /* Regla anterior eliminada */
-      /*
-      :last-child {
-        font-weight: 200;
-      }
-      */
     }
   }
 
   .departure {
     height: 10vh;
     padding: 2rem 3rem;
-    /* border-bottom: 1px solid var(--led-border); */ /* <-- Eliminado */
 
     .line {
       img {
@@ -79,6 +75,12 @@ section.schedules {
         font-size: 4rem;
         line-height: 0.9;
         animation: blinker 1s cubic-bezier(0.7, -0.5, 0.3, 1.5) 0s infinite;
+
+        // --- CAMBIO 1: Amarillo, Negrita, Mayúsculas ---
+        color: #ffff00;
+        font-weight: bold;
+        text-transform: uppercase;
+        // --- Fin Cambio 1 ---
       }
     }
   }
