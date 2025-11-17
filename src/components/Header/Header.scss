@@ -7,7 +7,6 @@ header {
   align-items: center;
 
   background-color: var(--led-bg);
-  /* border-bottom: 1px solid var(--led-border); */ /* <-- Eliminado */
 
   > * {
     padding: 0 3.5rem;
@@ -23,9 +22,12 @@ header {
   }
 
   .title {
-    font-size: 7rem;
+    // --- CAMBIO 3: Más grande y blanco ---
+    font-size: 7.5rem; // (era 7rem)
+    color: #ffffff;
+    // --- Fin Cambio 3 ---
     font-weight: bold;
     text-align: left;
-    text-transform: uppercase; /* <-- Añadido */
+    text-transform: uppercase;
   }
 }
