@@ -3,10 +3,8 @@ header .datetime {
   text-align: right;
 
   .time {
-    // --- CAMBIO 3: Más grande y blanco ---
-    font-size: 6.5rem; // (era 6rem)
+    font-size: 7.5rem; // (era 6.5rem)
     color: #ffffff;
-    // --- Fin Cambio 3 ---
     font-weight: bold;
   }
 }
