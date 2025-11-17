@@ -55,11 +55,9 @@ section.schedules {
     padding: 2rem 3rem;
 
     .line {
-      // --- AÑADIDO PARA CENTRAR EL SVG ---
       display: flex;
       align-items: center;
       justify-content: center;
-      // --- FIN ---
       img {
         height: 6rem;
       }
@@ -72,10 +70,9 @@ section.schedules {
     }
 
     .time {
-      // --- AÑADIDO PARA CENTRAR EL TIEMPO ---
       display: flex;
       align-items: center;
-      // --- FIN ---
+      justify-content: flex-end; // <-- ¡ESTE ES EL CAMBIO!
 
       .next {
         font-size: 4rem;
