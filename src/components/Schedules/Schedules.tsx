@@ -58,9 +58,8 @@ function Schedules({ station }: Props) {
         // 1. El cambio a Marítim
         if (
           upperDestination === "TALLER TARONGERS-D" ||
-          upperDestination === "MAR?TIM"
         ) {
-          destinationName = "MARÍTIM";
+          destinationName = "BETERÓ";
         }
         // 2. Arreglo de Tildes (Riba-roja)
         else if (upperDestination === "RIBA-ROJA DE T?RIA") {
@@ -85,6 +84,10 @@ function Schedules({ station }: Props) {
         // 7. Arreglo de Tildes (València Sud)
         else if (upperDestination === "VAL?NCIA SUD") {
           destinationName = "VALÈNCIA SUD";
+        }
+
+        else if (upperDestination === "MAR?TIM") {
+          destinationName = "MARÍTIM";
         }
         // --- FIN DEL PARCHEO ---
 
