@@ -55,10 +55,7 @@ function Schedules({ station }: Props) {
         // Convertimos a mayúsculas para comparar, así no importa cómo lo envíe la API
         const upperDestination = destinationName.toUpperCase();
 
-        // 1. El cambio a Marítim
-        if (
-          upperDestination === "TALLER TARONGERS-D" ||
-        ) {
+        if (upperDestination === "TALLER TARONGERS-D") {
           destinationName = "BETERÓ";
         }
         // 2. Arreglo de Tildes (Riba-roja)
@@ -85,7 +82,6 @@ function Schedules({ station }: Props) {
         else if (upperDestination === "VAL?NCIA SUD") {
           destinationName = "VALÈNCIA SUD";
         }
-
         else if (upperDestination === "MAR?TIM") {
           destinationName = "MARÍTIM";
         }
