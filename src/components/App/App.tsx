@@ -15,7 +15,7 @@ function App() {
     const UNA_HORA = 60 * 60 * 1000;
 
     const intervaloRefresco = setInterval(() => {
-      console.log("Hora de limpiar: Refrescando la página...");
+      console.log("Refrescant la pàgina...");
       window.location.reload(); // <-- Esto es como pulsar F5
     }, UNA_HORA);
 
