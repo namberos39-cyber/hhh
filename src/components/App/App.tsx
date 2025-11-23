@@ -10,6 +10,17 @@ import storage from "data/storage";
 import logo from "images/metrovalencia/isologo.svg"; // <-- ¡Logo importado!
 
 function App() {
+  useEffect(() => {
+    // 1 hora = 60 minutos * 60 segundos * 1000 milisegundos
+    const UNA_HORA = 60 * 60 * 1000;
+
+    const intervaloRefresco = setInterval(() => {
+      console.log("Hora de limpiar: Refrescando la página...");
+      window.location.reload(); // <-- Esto es como pulsar F5
+    }, UNA_HORA);
+
+    return () => clearInterval(intervaloRefresco);
+  }, []);  
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("station");
   const currentStation = id && parseInt(id);
